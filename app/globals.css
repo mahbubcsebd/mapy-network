@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Class-based dark mode ───────────────────── */
+@variant dark (&:where(.dark, .dark *));
+
+/* ── Brand tokens → bg-primary, text-secondary … */
+@theme {
+  --color-primary:         #2563eb;
+  --color-primary-hover:   #1d4ed8;
+  --color-secondary:       #e65625;
+  --color-secondary-hover: #cf4a1e;
+  --font-sans:    var(--font-inter, system-ui, sans-serif);
+  --font-display: var(--font-dm-sans, var(--font-inter, system-ui, sans-serif));
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── Keyframes referenced by components ───────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+@keyframes mesh-move {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(24px, -18px) scale(1.06); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2.4); opacity: 0; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* ── Scrollbar (pseudo-element, not addressable by Tailwind) */
+::-webkit-scrollbar              { width: 5px; }
+::-webkit-scrollbar-track        { background: #f1f5f9; }
+::-webkit-scrollbar-thumb        { background: rgba(37,99,235,.35); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover  { background: rgba(37,99,235,.65); }
+.dark ::-webkit-scrollbar-track  { background: #0f172a; }
