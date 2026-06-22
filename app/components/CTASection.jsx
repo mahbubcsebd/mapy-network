@@ -22,7 +22,7 @@ export default function CTASection() {
   };
 
   return (
-    <section className="py-24 px-6 bg-white dark:bg-slate-950 relative overflow-hidden">
+    <section className="py-24 px-6 bg-transparent relative overflow-hidden">
 
       {/* Background glow blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -36,8 +36,12 @@ export default function CTASection() {
       <div className="relative z-10 max-w-2xl mx-auto text-center">
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/25 text-secondary text-[0.72rem] font-semibold tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-6">
-          Get Started Today
+        <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-500 text-[0.7rem] font-semibold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full mb-6 backdrop-blur-md">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-orange-500"></span>
+          </span>
+          Ready to Transform?
         </div>
 
         {/* Headline */}

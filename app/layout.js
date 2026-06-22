@@ -52,7 +52,15 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 antialiased overflow-x-hidden transition-colors duration-300">
+      <body className="bg-white dark:bg-[#0a0f1c] text-slate-900 dark:text-slate-50 antialiased overflow-x-hidden transition-colors duration-300">
+        
+        {/* ── Global Background Effects ─────────────────────────────────── */}
+        <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
+          {/* Soft, premium glow blobs */}
+          <div className="absolute top-[-10%] left-[10%] w-[50vw] max-w-[600px] aspect-square rounded-full bg-blue-500/10 dark:bg-blue-500/15 blur-[120px] animate-[mesh-move_15s_ease-in-out_infinite]" />
+          <div className="absolute bottom-[-10%] right-[10%] w-[60vw] max-w-[700px] aspect-square rounded-full bg-cyan-400/10 dark:bg-cyan-400/10 blur-[130px] animate-[mesh-move_12s_ease-in-out_infinite_reverse]" />
+        </div>
+
         <ThemeProvider>
           {children}
         </ThemeProvider>
