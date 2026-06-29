@@ -40,8 +40,8 @@ const FEATURE_BLOCKS = [
 
 export default function AlternatingFeatures() {
   return (
-    <section className="py-24 overflow-hidden bg-transparent">
-      <div className="max-w-6xl mx-auto px-6 space-y-32">
+    <section className="py-16 md:py-24 px-6 overflow-hidden bg-transparent">
+      <div className="max-w-7xl mx-auto space-y-32">
         {FEATURE_BLOCKS.map((block, index) => (
           <div
             key={block.id}

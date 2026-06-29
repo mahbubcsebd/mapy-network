@@ -5,18 +5,18 @@ import Logo from './Logo';
 
 const MAIN_LINKS = [
   { label: 'HOME', href: '/' },
-  { label: 'PERSONAL', href: '#personal' },
-  { label: 'MERCHANTS', href: '#merchants' },
-  { label: 'FINANCIAL INSTITUTIONS', href: '#financial-institutions' },
-  { label: 'ABOUT US', href: '#about' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'CONTACT US', href: '#contact' },
+  { label: 'PERSONAL', href: '/personal' },
+  { label: 'MERCHANTS', href: '/merchants' },
+  { label: 'FINANCIAL INSTITUTIONS', href: '/financial-institutions' },
+  { label: 'ABOUT US', href: '/about-us' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'CONTACT US', href: '/contact-us' },
 ];
 
 const LEGAL_LINKS = [
-  { label: 'Privacy Policy', href: '#privacy' },
-  { label: 'Terms and Conditions', href: '#terms' },
-  { label: 'Cookie Policy', href: '#cookie' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms and Conditions', href: '/terms-and-conditions' },
+  { label: 'Cookie Policy', href: '/cookie-policy' },
 ];
 
 export default function Footer() {
@@ -24,7 +24,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-white/[0.06] pt-16 pb-8 px-6 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto flex flex-col items-center">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
         
         {/* Logo */}
         <Link href="/" className="mb-10">

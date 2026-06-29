@@ -57,7 +57,7 @@ const itemVariants = {
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 px-6 bg-slate-50/50 dark:bg-white/[0.02] backdrop-blur-sm">
+    <section id="how-it-works" className="py-16 md:py-24 px-6 bg-slate-50/50 dark:bg-white/[0.02] backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}

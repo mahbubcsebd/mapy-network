@@ -13,7 +13,7 @@ const HERO_STATS = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-28 pb-20 px-6 bg-transparent">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-16 md:pt-28 md:pb-20 px-6 bg-transparent">
       
       <div className="relative z-10 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
@@ -52,7 +52,7 @@ export default function Hero() {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-14">
             <Link
-              href="#contact"
+              href="/contact-us"
               className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white text-sm font-semibold overflow-hidden transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-xl hover:shadow-primary/30"
             >
               <span className="relative z-10 flex items-center gap-2">

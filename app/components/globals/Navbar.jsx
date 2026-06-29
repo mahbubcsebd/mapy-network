@@ -3,23 +3,24 @@
 import { useTheme } from '@/app/context/ThemeContext';
 import { ChevronRight, Menu, Moon, Sun, X } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Logo from './Logo';
 
 const NAV_LINKS = [
-  { label: 'HOME', href: '/' },
-  { label: 'PERSONAL', href: '#personal' },
-  { label: 'MERCHANTS', href: '#merchants' },
-  { label: 'FINANCIAL INSTITUTIONS', href: '#financial-institutions' },
-  { label: 'ABOUT US', href: '#about' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'CONTACT US', href: '#contact' },
+  { label: 'PERSONAL', href: '/personal' },
+  { label: 'MERCHANTS', href: '/merchants' },
+  { label: 'FINANCIAL INSTITUTIONS', href: '/financial-institutions' },
+  { label: 'ABOUT US', href: '/about-us' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'CONTACT US', href: '/contact-us' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
 
   /* Detect scroll — passive listener for performance */
   useEffect(() => {
@@ -29,15 +30,15 @@ export default function Navbar() {
   }, []);
 
   const navBase = [
-    'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+    'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
     scrolled
-      ? 'py-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-black/20'
-      : 'py-5',
+      ? 'py-3 bg-white/40 dark:bg-slate-950/40 backdrop-blur-3xl shadow-lg shadow-slate-200/40 dark:shadow-black/40 border-b border-white/20 dark:border-slate-800/50'
+      : 'py-5 bg-transparent border-b border-transparent',
   ].join(' ');
 
   return (
     <header className={navBase}>
-      <div className="max-w-7xl mx-auto px-5 lg:px-8 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-4">
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0 max-w-[120px]">
           <Logo />
@@ -48,15 +49,22 @@ export default function Navbar() {
           className="hidden md:flex items-center gap-0.5"
           aria-label="Primary navigation"
         >
-          {NAV_LINKS.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/[0.06] dark:hover:bg-primary/[0.1] transition-all duration-200"
-            >
-              {label}
-            </Link>
-          ))}
+          {NAV_LINKS.map(({ label, href }) => {
+            const isActive = pathname === href;
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`px-3.5 py-2 rounded-lg text-sm font-bold transition-all duration-200 ${
+                  isActive
+                    ? 'text-primary dark:text-blue-400 bg-primary/10 dark:bg-primary/25 ring-1 ring-primary/20 dark:ring-primary/30'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-blue-400 hover:bg-primary/5 dark:hover:bg-primary/15'
+                }`}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Actions */}
@@ -77,10 +85,10 @@ export default function Navbar() {
           {/* CTA */}
           <Link
             id="navbar-cta"
-            href="#contact"
-            className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-bold bg-primary text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 transition-all duration-200"
+            href="/contact-us"
+            className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-bold bg-primary text-white hover:bg-primary-hover hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 transition-all duration-200"
           >
-            Get Started <ChevronRight size={16} strokeWidth={2.5} />
+            Get Started
           </Link>
 
           {/* Mobile hamburger */}
@@ -113,22 +121,29 @@ export default function Navbar() {
         ].join(' ')}
       >
         <nav className="flex flex-col gap-1 p-4">
-          {NAV_LINKS.map(({ label, href }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setMobileOpen(false)}
-              className="px-4 py-3 rounded-xl text-base font-medium text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-primary/[0.06] dark:hover:text-primary dark:hover:bg-primary/[0.1] transition-all duration-200"
-            >
-              {label}
-            </Link>
-          ))}
+          {NAV_LINKS.map(({ label, href }) => {
+            const isActive = pathname === href;
+            return (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setMobileOpen(false)}
+                className={`px-4 py-3 rounded-xl text-base font-bold transition-all duration-200 ${
+                  isActive
+                    ? 'text-primary dark:text-blue-400 bg-primary/10 dark:bg-primary/25 ring-1 ring-primary/20 dark:ring-primary/30'
+                    : 'text-slate-700 dark:text-slate-200 hover:text-primary hover:bg-primary/5 dark:hover:text-blue-400 dark:hover:bg-primary/15'
+                }`}
+              >
+                {label}
+              </Link>
+            );
+          })}
           <Link
-            href="#contact"
+            href="/contact-us"
             onClick={() => setMobileOpen(false)}
-            className="mt-2 px-4 py-3 rounded-xl text-center bg-primary text-white font-semibold hover:bg-primary-hover transition-colors duration-200"
+            className="mt-2 px-4 py-3 rounded-xl text-center bg-primary text-white font-bold hover:bg-primary-hover transition-colors duration-200"
           >
-            Get Started →
+            Get Started
           </Link>
         </nav>
       </div>

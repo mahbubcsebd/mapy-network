@@ -9,8 +9,8 @@ const STATS = [
     Icon: Globe,
     iconWrap: 'bg-blue-500/10 border border-blue-500/20',
     iconCls: 'text-blue-500',
-    topBar: 'bg-orange-500',
-    valueCls: 'text-orange-500',
+    topBar: 'bg-blue-400',
+    valueCls: 'text-blue-400',
     value: 15,
     suffix: '+',
     label: 'Caribbean Countries',
@@ -20,8 +20,8 @@ const STATS = [
     Icon: Users,
     iconWrap: 'bg-violet-500/10 border border-violet-500/20',
     iconCls: 'text-violet-500',
-    topBar: 'bg-orange-500',
-    valueCls: 'text-orange-500',
+    topBar: 'bg-violet-400',
+    valueCls: 'text-violet-400',
     value: 500,
     suffix: 'K+',
     label: 'Active Merchants',
@@ -31,8 +31,8 @@ const STATS = [
     Icon: TrendingUp,
     iconWrap: 'bg-emerald-500/10 border border-emerald-500/20',
     iconCls: 'text-emerald-500',
-    topBar: 'bg-orange-500',
-    valueCls: 'text-orange-500',
+    topBar: 'bg-emerald-400',
+    valueCls: 'text-emerald-400',
     value: 3,
     suffix: 'M+',
     label: 'Monthly Transactions',
@@ -42,8 +42,8 @@ const STATS = [
     Icon: Building2,
     iconWrap: 'bg-orange-500/10 border border-orange-500/20',
     iconCls: 'text-orange-500',
-    topBar: 'bg-orange-500',
-    valueCls: 'text-orange-500',
+    topBar: 'bg-orange-400',
+    valueCls: 'text-orange-400',
     value: 100,
     suffix: '%',
     label: 'Platform Uptime',
@@ -62,7 +62,7 @@ const itemVariants = {
 
 export default function Stats() {
   return (
-    <section className="py-20 px-6 bg-transparent border-y border-slate-100 dark:border-white/[0.05]">
+    <section className="py-12 md:py-20 px-6 bg-transparent border-y border-slate-100 dark:border-white/[0.05]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

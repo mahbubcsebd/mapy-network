@@ -80,7 +80,7 @@ const cardVariants = {
 
 export default function Features() {
   return (
-    <section id="services" className="py-24 px-6 bg-slate-50/50 dark:bg-white/[0.02] backdrop-blur-sm">
+    <section id="services" className="py-16 md:py-24 px-6 bg-slate-50/50 dark:bg-white/[0.02] backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}

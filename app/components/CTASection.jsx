@@ -22,7 +22,7 @@ export default function CTASection() {
   };
 
   return (
-    <section className="py-24 px-6 bg-transparent relative overflow-hidden">
+    <section className="py-16 md:py-24 px-6 bg-transparent relative overflow-hidden">
 
       {/* Background glow blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">

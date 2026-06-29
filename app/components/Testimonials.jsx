@@ -66,7 +66,7 @@ function StarRating({ count = 5 }) {
 
 export default function Testimonials() {
   return (
-    <section className="py-24 overflow-hidden bg-slate-50/50 dark:bg-white/[0.02] backdrop-blur-sm border-t border-slate-100 dark:border-white/[0.05]">
+    <section className="py-16 md:py-24 overflow-hidden bg-slate-50/50 dark:bg-white/[0.02] backdrop-blur-sm border-t border-slate-100 dark:border-white/[0.05]">
 
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 text-center mb-12">
